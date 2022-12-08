@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@angular/animations": "^14.2.4",
+    "@angular/cdk": "^14.2.3",
+    "@angular/material": "^14.2.3",
+    "bootstrap": "^5.2.3",
+    "jquery": "^3.6.1",
+    "popper.js": "^1.16.1"
+  }
+}

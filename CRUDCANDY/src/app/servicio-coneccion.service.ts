@@ -8,7 +8,7 @@ export class ServicioConeccionService {
 
   constructor(private firestore:AngularFirestore) { }
 
-  AgregarMuebles(mueble: any): Promise<any>{
+  AgregarMuebles(mueble: any): Promise<any> {
     return this.firestore.collection('mueble').add(mueble)
   }
 }

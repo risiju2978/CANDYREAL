@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CrudComponent implements OnInit {
   title = 'CRUDCANDY';
 Muebles:Array<any> = [
-{nombre_mueble:'mesa',descripcion_mueble:'bonito mueble',precio_mueble: 1500,foto_mueble:'imagen'}
+{ID_mueble:12345,nombre_mueble:'mesa',descripcion_mueble:'bonito mueble',precio_mueble: 1500,foto_mueble:'imagen'}
 
 ]
   constructor() { }

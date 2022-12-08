@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr/toastr/toastr.service';
+import { ToastrService } from 'ngx-toastr';
 
 import { ServicioConeccionService } from '../servicio-coneccion.service';
 
@@ -13,6 +13,7 @@ import { ServicioConeccionService } from '../servicio-coneccion.service';
 export class AgregarMueblesComponent implements OnInit {
 AgregarMuebles: FormGroup;
 submitted = false;
+loading = false;
   constructor(private fb: FormBuilder,
                 private _ServicioConeccionService: ServicioConeccionService,
                  private router: Router,
@@ -38,13 +39,18 @@ Agregar_mueble(){
     fechaCreacion: new Date(),
     fechaActualizacion: new Date(),
   }
-  
+  this.loading = true;
   this._ServicioConeccionService.AgregarMuebles(mueble).then(()=>{
-    this.toastr.success('¡El mueble fue registrado con exito!','Mueble agregado al catalogo')
+    this.toastr.success('¡El mueble fue registrado con exito!', 'Mueble agregado al catalogo',{
+      positionClass: 'toast-bottom-right'
+    })
+     
+  
+    this.loading = false;
     this.router.navigate(['/crud'])
   }).catch((error: any) => {
     console.log(error);
-    
+    this.loading = false;
   })
   
 }

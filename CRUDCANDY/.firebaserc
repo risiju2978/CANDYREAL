@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "candy-28872": {
+      "hosting": {
+        "CRUDCANDY": [
+          "candy-28872"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "candy-28872"
+  }
+}
