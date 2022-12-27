@@ -18,7 +18,7 @@ import { AgregarMueblesComponent } from './agregar-muebles/agregar-muebles.compo
 import { EditarMueblesComponent } from './editar-muebles/editar-muebles.component';
 import { environment } from 'src/environments/environment';
 import { ToastrModule } from 'ngx-toastr';
-import { ListaMueblesComponent } from './lista-muebles/lista-muebles.component';
+
 
 
 
@@ -42,8 +42,7 @@ const routes: Routes = [
     AppComponent,
     CrudComponent,
     AgregarMueblesComponent,
-    EditarMueblesComponent,
-    ListaMueblesComponent,
+    EditarMueblesComponent
     
   ],
   imports: [
