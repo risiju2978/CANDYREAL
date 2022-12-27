@@ -7,24 +7,24 @@
 <table class="table  mt-5 class=table table table-hover">
     
     <thead>
-          <tr *ngFor ="let mueble of Muebles">   
-          <th scope="col ">Muebles.ID_mueble </th>
-          <th scope="col">Muebles.nombre_mueble </th> 
-          <th scope="col">Muebles.descripcion_mueble </th> 
-          <th scope="col">Muebles.precio_mueble </th> 
-          <th scope="col">Muebles.foto_mueble </th>
+           
+          <th scope="col ">ID  </th>
+          <th scope="col">Nombre  </th> 
+          <th scope="col">Descripcion  </th> 
+          <th scope="col">Precio  </th> 
+          <th scope="col">Foto  </th>
           <th>ACCIONES</th>
           <i class="fa-solid fa-user"></i>
-          </tr>  
+           
     </thead>
     <tbody>
       
-        <tr *ngFor="let mueble of Muebles; index as i">
-            <td>{{mueble.ID_mueble}}</td>
-            <td>{{mueble.nombre_mueble}}</td>
-            <td>{{mueble.descripcion_mueble}}</td>
-            <td>{{mueble.precio_mueble}}</td>
-            <td>{{mueble.foto_mueble}}</td>
+        <tr *ngFor="let mueble of ListaMueble; index as i">
+            <td>{{mueble.id}}</td>
+            <td>{{mueble.Nombre}}</td>
+            <td>{{mueble.Descripcion}}</td>
+            <td>{{mueble.Precio}}</td>
+            <td>{{mueble.Foto}}</td>
             <button type="button" class="btn btn-info mr-2 mt-2 " routerLink="/editar-muebles">Editar</button>
             <button type="button" class="btn btn-danger mr-2 mt-2 ">Borrar</button>
             

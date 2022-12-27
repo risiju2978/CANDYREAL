@@ -15,7 +15,7 @@ export class ServicioConeccionService {
 
 
   getMuebles() :Observable<any> {
-      return this.firestore.collection('mueble').snapshotChanges();
+      return this.firestore.collection('mueble', ref => ref.orderBy('fechaCreacion','asc')).snapshotChanges();
 
 
   }

@@ -23,6 +23,7 @@ loading = false;
       Nombre:['', Validators.required],
       Descripcion:['', Validators.required],
       Precio:['', Validators.required],
+      Foto:['', Validators.required],
     })
   }
 
@@ -37,6 +38,7 @@ Agregar_mueble(){
     Nombre: this.AgregarMuebles.value.Nombre,
     Descripcion: this.AgregarMuebles.value.Descripcion,
     Precio: this.AgregarMuebles.value.Precio,
+    Foto: this.AgregarMuebles.value.Foto,
     fechaCreacion: new Date(),
     fechaActualizacion: new Date(),
   }

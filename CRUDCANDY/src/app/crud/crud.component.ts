@@ -10,10 +10,10 @@ export class CrudComponent implements OnInit {
 
   title = 'CRUDCANDY';
 
-Muebles:Array<any> = [
+/*Muebles:Array<any> = [
 {ID_mueble:12345,nombre_mueble:'mesa',descripcion_mueble:'bonito mueble',precio_mueble: 1500,foto_mueble:'imagen'}
 
-];
+];*/
 
 
   constructor(private _ServicioConeccionService: ServicioConeccionService) { 
@@ -29,7 +29,7 @@ Muebles:Array<any> = [
      this.ListaMueble =[];
       data.Array.forEach((element: any) =>{
           this.ListaMueble.push({
-            ID_mueble: element.payload.doc.id,
+            id: element.payload.doc.id,
             ...element.payload.doc.data()
           })
 
