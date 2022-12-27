@@ -7,12 +7,12 @@
 <table class="table  mt-5 class=table table table-hover">
     
     <thead>
-          <tr>   
-          <th scope="col ">ID MUEBLE </th>
-          <th scope="col">NOMBRE MUEBLE </th> 
-          <th scope="col">DESCRIPCION MUEBLE </th> 
-          <th scope="col">PRECIO MUEBLE </th> 
-          <th scope="col">FOTO MUEBLE </th>
+          <tr *ngFor ="let mueble of Muebles">   
+          <th scope="col ">Muebles.ID_mueble </th>
+          <th scope="col">Muebles.nombre_mueble </th> 
+          <th scope="col">Muebles.descripcion_mueble </th> 
+          <th scope="col">Muebles.precio_mueble </th> 
+          <th scope="col">Muebles.foto_mueble </th>
           <th>ACCIONES</th>
           <i class="fa-solid fa-user"></i>
           </tr>  

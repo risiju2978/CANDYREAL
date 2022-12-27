@@ -2,13 +2,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyDti-7VqxKOX8cfRl0rzArYGJaM06l0oIQ",
-  authDomain: "candy-28872.firebaseapp.com",
-  projectId: "candy-28872",
-  storageBucket: "candy-28872.appspot.com",
-  messagingSenderId: "114361046149",
-  appId: "1:114361046149:web:3c8d03ee4822d6c8f545ec",
-  measurementId: "G-5X7QRGV8P7"
+    apiKey: "AIzaSyAs4StRcnlbv9Q93M5vioht0apwUiGeNw0",
+    authDomain: "provenzalychic.firebaseapp.com",
+    projectId: "provenzalychic",
+    storageBucket: "provenzalychic.appspot.com",
+    messagingSenderId: "921037980921",
+    appId: "1:921037980921:web:7af770078d1b35abf10e28",
+    measurementId: "G-ZJ8TLVTSED"
   }
 
 

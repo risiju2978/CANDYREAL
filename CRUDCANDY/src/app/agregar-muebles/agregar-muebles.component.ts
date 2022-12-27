@@ -14,6 +14,7 @@ export class AgregarMueblesComponent implements OnInit {
 AgregarMuebles: FormGroup;
 submitted = false;
 loading = false;
+
   constructor(private fb: FormBuilder,
                 private _ServicioConeccionService: ServicioConeccionService,
                  private router: Router,
