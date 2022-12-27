@@ -15,7 +15,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //componentes
 import { CrudComponent } from './crud/crud.component';
 import { AgregarMueblesComponent } from './agregar-muebles/agregar-muebles.component';
-import { EditarMueblesComponent } from './editar-muebles/editar-muebles.component';
 import { environment } from 'src/environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -29,7 +28,7 @@ const routes: Routes = [
   { path:'', redirectTo: 'crud', pathMatch:'full'},
   { path: 'crud', component: CrudComponent },
   { path: 'agregar-muebles', component: AgregarMueblesComponent },
-  { path: 'editar-muebles',  component: EditarMueblesComponent },
+  { path: 'editar-muebles/:id',  component: AgregarMueblesComponent },
   { path: '**', redirectTo: 'crud', pathMatch: 'full'},
 
 ];
@@ -42,7 +41,7 @@ const routes: Routes = [
     AppComponent,
     CrudComponent,
     AgregarMueblesComponent,
-    EditarMueblesComponent
+  
     
   ],
   imports: [
