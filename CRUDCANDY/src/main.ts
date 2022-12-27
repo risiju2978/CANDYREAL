@@ -10,3 +10,15 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+
+  /*
+  <script>    SystemJS.config({
+    packages: {
+        "CRUDCANDY": {
+            "main": "main",
+            "defaultExtension": "js"
+        }
+    }
+  });
+  System.import("js");</script>
+  ERA PARTE DE INDEX.HTML */ 
