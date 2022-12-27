@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ServicioConeccionService } from 'src/app/servicio-coneccion.service' ;
 @Component({
   selector: 'app-crud',
@@ -16,7 +17,8 @@ export class CrudComponent implements OnInit {
 ];*/
 
 
-  constructor(private _ServicioConeccionService: ServicioConeccionService) { 
+  constructor(private _ServicioConeccionService: ServicioConeccionService, 
+    private toastr: ToastrService) { 
 
   }
 
@@ -35,8 +37,17 @@ export class CrudComponent implements OnInit {
 
 
       });
-      
+      console.log(this.ListaMueble);
     });
 
+  }
+
+  eliminarMueble(id: string){
+    this._ServicioConeccionService.eliminarMueble(id).then(() => {
+      this.toastr.error('El producto fue eliminado con exito', 'Registro eliminado!',{positionClass: 'toast-bottom-right'});
+    }).catch(error => {
+      this.toastr.error('Hubo un error al eliminar el producto','ERROR',{positionClass: 'toast-bottom-right'});
+    }
+    )
   }
 }

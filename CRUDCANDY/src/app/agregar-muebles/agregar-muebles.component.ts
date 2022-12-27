@@ -52,7 +52,7 @@ Agregar_mueble(){
     this.loading = false;
     this.router.navigate(['/crud'])
   }).catch((error: any) => {
-    console.log(error);
+    this.toastr.error('Hubo un error al agregar el producto','ERROR',{positionClass: 'toast-bottom-right'});
     this.loading = false;
   })
   

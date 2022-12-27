@@ -20,4 +20,8 @@ export class ServicioConeccionService {
 
   }
 
+eliminarMueble(id: string): Promise<any> {
+  return this.firestore.collection('mueble').doc(id).delete();
+}
+
 }
