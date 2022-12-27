@@ -8,7 +8,7 @@ import { ServicioConeccionService } from 'src/app/servicio-coneccion.service' ;
 export class CrudComponent implements OnInit {
   ListaMueble: any[] = [];
 
-  title = 'CRUDCANDY';
+ 
 
 /*Muebles:Array<any> = [
 {ID_mueble:12345,nombre_mueble:'mesa',descripcion_mueble:'bonito mueble',precio_mueble: 1500,foto_mueble:'imagen'}
@@ -25,9 +25,9 @@ export class CrudComponent implements OnInit {
   }
 
   getMuebles(){
-    this._ServicioConeccionService.getMuebles().subscribe((data: { Array: any[]; }) =>{
-     this.ListaMueble =[];
-      data.Array.forEach((element: any) =>{
+    this._ServicioConeccionService.getMuebles().subscribe(data => {
+     this.ListaMueble = [];
+      data.forEach((element: any) => {
           this.ListaMueble.push({
             id: element.payload.doc.id,
             ...element.payload.doc.data()
@@ -35,6 +35,7 @@ export class CrudComponent implements OnInit {
 
 
       });
+      
     });
 
   }

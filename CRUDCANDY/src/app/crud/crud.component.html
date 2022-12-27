@@ -2,6 +2,7 @@
 <div class="container mt-4">
     <div class="card">
         <div class="card-body">
+            
             <span class="h3">Lista muebles  </span>
             <button type="button" class="btn btn btn-success float-right mr-2 mt-2 " routerLink="/agregar-muebles">Agregar</button>
 <table class="table  mt-5 class=table table table-hover">
@@ -19,9 +20,9 @@
     </thead>
     <tbody>
       
-        <tr *ngFor = "let mueble of ListaMueble; index as i">
-            <td>{{mueble.id}}</td>
-            <td>{{mueble.Nombre}}</td>
+        <tr *ngFor="let mueble of ListaMueble">
+            <td >{{ mueble.id }}</td>
+            <td>{{ mueble.Nombre}}</td>
             <td>{{mueble.Descripcion}}</td>
             <td>{{mueble.Precio}}</td>
             <td>{{mueble.Foto}}</td>
