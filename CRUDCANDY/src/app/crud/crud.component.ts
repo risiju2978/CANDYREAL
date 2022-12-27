@@ -21,10 +21,10 @@ export class CrudComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getListamuebles
+    this.getMuebles
   }
 
-  getListamuebles(){
+  getMuebles(){
     this._ServicioConeccionService.getMuebles().subscribe((data: { Array: any[]; }) =>{
      this.ListaMueble =[];
       data.Array.forEach((element: any) =>{
