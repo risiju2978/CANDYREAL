@@ -9,13 +9,6 @@ import { ServicioConeccionService } from 'src/app/servicio-coneccion.service' ;
 export class CrudComponent implements OnInit {
   ListaMueble: any[] = [];
 
- 
-
-/*Muebles:Array<any> = [
-{ID_mueble:12345,nombre_mueble:'mesa',descripcion_mueble:'bonito mueble',precio_mueble: 1500,foto_mueble:'imagen'}
-
-];*/
-
 
   constructor(private _ServicioConeccionService: ServicioConeccionService, 
     private toastr: ToastrService) { 
@@ -23,7 +16,7 @@ export class CrudComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getMuebles
+    this.getMuebles()
   }
 
   getMuebles(){

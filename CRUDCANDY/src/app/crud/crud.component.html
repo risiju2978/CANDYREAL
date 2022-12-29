@@ -28,7 +28,7 @@
             <td>{{ mueble.Precio | currency }}</td>
             <td>{{ mueble.Foto }}</td>
             <td>
-            <button type="button" class="btn btn-info mr-2 mt-2 " routerLink="/editar-muebles">Editar</button>
+            <button type="button" class="btn btn-info mr-2 mt-2 " [routerLink]="['/editar-muebles/', mueble.id]">Editar</button>
             <button type="button" (click)="eliminarMueble(mueble.id)" class="btn btn-danger mr-2 mt-2 ">Borrar</button>
         </td>
     </tr>
