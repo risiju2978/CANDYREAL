@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
+import { Storage, ref, uploadBytes} from '@angular/fire/storage';
 import { ServicioConeccionService } from '../servicio-coneccion.service';
 
 @Component({
@@ -17,8 +17,8 @@ submitted = false;
 loading = false;
 id: string | null;
   public titulo!: boolean;
- public archivos: any = [];
- public previsualizacion!: string;
+ 
+
 
 
   constructor(private fb: FormBuilder,
@@ -26,7 +26,8 @@ id: string | null;
                  private router: Router,
                   private toastr: ToastrService,
                   private aRoute: ActivatedRoute,
-                  private sanitizer: DomSanitizer) { 
+
+                  private storage: Storage) { 
                   this.AgregarMuebles = this.fb.group({
       Nombre:['', Validators.required],
       Descripcion:['', Validators.required],
@@ -41,49 +42,18 @@ id: string | null;
     this.EditarMueble()
   }
 
-  capturarFile(event: any) {
-      const archivoCapturado = event.target.files[0];
-      this.extraerBase64(archivoCapturado).then((imagen: any) =>{
-        this.previsualizacion = imagen.base;
-      })
-      this.archivos.push(archivoCapturado)
-  }
-extraerBase64 = async ($event: any) => new Promise((resolve, reject) =>{
-  try{
-    const unsafeImg = window.URL.createObjectURL($event);
-    const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
-    const reader = new FileReader();
-    reader.readAsDataURL($event);
-    reader.onload = () =>{
-      resolve({
-        
-       image,
-        base: reader.result
-      });
-    };
-    reader.onerror = error =>{
-      resolve({
+ 
 
-        image,
-        base: null
-      });
-    };
-  }catch (e){
-    return null;
-  }
-})
+subirArchivo($event: any) {
+ const file = $event.target.files[0];
+ const imgRef = ref(this.storage, 'images/${file.name}');
 
-subirArchivo(): any {
-  try{
-    const formularioDeDatos = new FormData();
-    this.archivos.forEach((archivo: string | Blob) =>{
-      formularioDeDatos.append('files', archivo)
-    })
-   
-  }catch(e){
-    console.log('ERROR',e);
-  }
+ uploadBytes(imgRef, file).then(x =>{
+  console.log(x);
+ })
 }
+
+
 
   agregarEditarMueble(){
     this.submitted = true;
@@ -120,7 +90,7 @@ Agregar_mueble(){
   
     this.loading = false;
     this.router.navigate(['/crud']);
-  }).catch((error: any) => {
+  }).catch((_error: any) => {
     this.toastr.error('Hubo un error al agregar el producto','ERROR',{positionClass: 'toast-bottom-right'});
     this.loading = false;
   })
@@ -141,7 +111,7 @@ EditarMuebleAhora(id: string){
       positionClass: 'toast-bottom-right'
     })
     this.router.navigate(['/crud']);
-  }).catch((error: any) => {
+  }).catch((_error: any) => {
     this.toastr.error('Hubo un error al modificar el producto','ERROR',{positionClass: 'toast-bottom-right'});
     this.loading = false;
 })
