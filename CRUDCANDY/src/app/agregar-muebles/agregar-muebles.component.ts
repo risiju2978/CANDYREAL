@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Storage, ref, uploadBytes} from '@angular/fire/storage';
+import { Storage, ref, uploadBytes, listAll, getDownloadURL} from '@angular/fire/storage';
 import { ServicioConeccionService } from '../servicio-coneccion.service';
 
 @Component({
@@ -17,7 +17,8 @@ submitted = false;
 loading = false;
 id: string | null;
   public titulo!: boolean;
- 
+  images: string[] = [];
+  
 
 
 
@@ -39,7 +40,8 @@ id: string | null;
   }
 
   ngOnInit(): void {
-    this.EditarMueble()
+    this.EditarMueble();
+    this.getImages()
   }
 
  
@@ -48,9 +50,21 @@ subirArchivo($event: any) {
  const file = $event.target.files[0];
  const imgRef = ref(this.storage, 'images/${file.name}');
 
- uploadBytes(imgRef, file).then(x =>{
-  console.log(x);
+ uploadBytes(imgRef, file).then(() =>{
+  this.getImages();
  })
+}
+getImages(){
+  const imageRef = ref(this.storage, 'images');
+
+  listAll(imageRef).then(async images =>{
+    this.images = [];
+    for(let image of images.items){
+      const url = await getDownloadURL(image);
+      this.images.push(url);
+    }
+
+  }).catch(error => console.log(error));
 }
 
 
@@ -131,8 +145,5 @@ EditarMueble(){
     })
   }
 }
-}
-function ngOnInit() {
-  throw new Error('Function not implemented.');
 }
 
