@@ -52,9 +52,13 @@ subirArchivo($event: any) {
 
  uploadBytes(imgRef, file).then(() =>{
   this.getImages();
- })
+ }).catch((_error: any) => {
+  this.toastr.error('Hubo un error al mostrar el producto','ERROR',{positionClass: 'toast-bottom-right'});
+})
+
 }
-getImages(){
+getImages()
+{
   const imageRef = ref(this.storage, 'images');
 
   listAll(imageRef).then(async images =>{
@@ -64,8 +68,11 @@ getImages(){
       this.images.push(url);
     }
 
-  }).catch(error => console.log(error));
-}
+  }).catch((_error: any) => {
+    this.toastr.error('Hubo un error al mostrar el producto','ERROR',{positionClass: 'toast-bottom-right'});
+  })
+ }
+
 
 
 

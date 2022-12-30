@@ -17,7 +17,9 @@ import { CrudComponent } from './crud/crud.component';
 import { AgregarMueblesComponent } from './agregar-muebles/agregar-muebles.component';
 import { environment } from 'src/environments/environment';
 import { ToastrModule } from 'ngx-toastr';
-
+import { provideStorage, getStorage } from '@angular/fire/storage';
+import { provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp } from 'firebase/app';
 
 
 
@@ -49,7 +51,8 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule, 
     AngularFireModule.initializeApp(environment.firebase),
-    
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
     AngularFirestoreModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
