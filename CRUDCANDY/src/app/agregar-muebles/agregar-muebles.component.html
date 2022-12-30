@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-lg-6 offset-lg-3">
             <div class="card text-center">
+                <div class="container">
                 <div class="card-body">
                     <h3>{{(titulo) ? 'Agregar Producto' : 'Editar producto'}}
                         <div *ngIf = "loading" class="spinner-border float-right" role="status">
@@ -20,7 +21,7 @@
                             
                                 <input type="text" class="form-control form-control-lg mt-3" formControlName="Precio" placeholder="Precio">
 
-                                <input (change)="subirArchivo($event)" type="file" class="form-control form-control-lg mt-3" formControlName="Foto" placeholder="Imagen Producto">
+                                <input (change)="subirArchivo($event)" type="file" class="form-control form-control-lg mt-3" id="formFileLg" formControlName="Foto" placeholder="Imagen Producto">
                                
                                 <div class="row row-cols-1 row-cols-md-3 g-4">
                                     <div *ngFor="let image of images" class="col">
@@ -42,4 +43,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

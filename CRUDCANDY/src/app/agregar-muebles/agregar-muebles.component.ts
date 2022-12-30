@@ -41,19 +41,19 @@ id: string | null;
 
   ngOnInit(): void {
     this.EditarMueble();
-    this.getImages()
+    this.getImages();
   }
 
  
 
 subirArchivo($event: any) {
  const file = $event.target.files[0];
- const imgRef = ref(this.storage, 'images/${file.name}');
+ const imgRef = ref(this.storage, 'image/${file.name}');
 
- uploadBytes(imgRef, file).then(() =>{
+ uploadBytes(imgRef, file).then((x) =>{
   this.getImages();
  }).catch((_error: any) => {
-  this.toastr.error('Hubo un error al mostrar el producto','ERROR',{positionClass: 'toast-bottom-right'});
+  this.toastr.error('Hubo un error al subir la imagen','ERROR',{positionClass: 'toast-bottom-right'});
 })
 
 }
